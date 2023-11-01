@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/black"
+    android:layout_margin="0dp"
+    tools:context=".MainActivity" >
+
+    <TextView
+        android:id="@+id/textNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:layout_marginRight="10dp"
+        android:textSize="50dp"
+
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:text="0.00" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="5dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/buttonClear"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_margin="5dp"
+                android:text="C"
+                android:textSize="35dp"
+                app:cornerRadius="12dp" />
+
+            <Button
+                android:id="@+id/buttonDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_margin="5dp"
+                android:text="D"
+                android:textSize="35dp"
+                app:cornerRadius="12dp" />
+
+            <Button
+                android:id="@+id/buttonVariable"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_margin="5dp"
+                android:text="X"
+                android:textSize="35dp"
+                app:cornerRadius="12dp" />
+
+            <Button
+                android:id="@+id/buttonDivision"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_margin="5dp"
+                android:text="÷"
+                android:textSize="35dp"
+                app:cornerRadius="12dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/button7"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_margin="5dp"
+                android:text="7"
+                android:textSize="35dp"
+                app:cornerRadius="12dp" />
+
+            <Button
+                android:id="@+id/button8"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_margin="5dp"
+                android:text="8"
+                android:textSize="35dp"
+                app:cornerRadius="12dp" />
+
+            <Button
+                android:id="@+id/button9"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_margin="5dp"
+                android:text="9"
+                android:textSize="35dp"
+                app:cornerRadius="12dp" />
+
+            <Button
+                android:id="@+id/buttonMultiplication"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_margin="5dp"
+                android:text="*"
+                android:textSize="35dp"
+                app:cornerRadius="12dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_margin="5dp"
+                android:text="4"
+                android:textSize="35dp"
+                app:cornerRadius="12dp" />
+
+            <Button
+                android:id="@+id/button5"
+
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_margin="5dp"
+                android:text="5"
+                android:textSize="35dp"
+                app:cornerRadius="12dp" />
+
+            <Button
+                android:id="@+id/button6"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_margin="5dp"
+                android:text="6"
+                android:textSize="35dp"
+                app:cornerRadius="12dp" />
+
+            <Button
+                android:id="@+id/buttonSubtraction"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_margin="5dp"
+                android:text="-"
+                android:textSize="35dp"
+                app:cornerRadius="12dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_margin="5dp"
+                android:text="1"
+                android:textSize="35dp"
+                app:cornerRadius="12dp" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_margin="5dp"
+                android:text="2"
+                android:textSize="35dp"
+                app:cornerRadius="12dp" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_margin="5dp"
+                android:text="3"
+                android:textSize="35dp"
+                app:cornerRadius="12dp" />
+
+            <Button
+                android:id="@+id/buttonAddition"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_margin="5dp"
+                android:text="+"
+                android:textSize="35dp"
+                app:cornerRadius="12dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/buttonExponent"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_margin="5dp"
+                android:text="^"
+                android:textSize="35dp"
+                app:cornerRadius="12dp" />
+
+            <Button
+                android:id="@+id/button0"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_margin="5dp"
+                android:text="0"
+                android:textSize="35dp"
+                app:cornerRadius="12dp" />
+
+            <Button
+                android:id="@+id/buttonDecimal"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_margin="5dp"
+                android:text="."
+                android:textSize="35dp"
+                app:cornerRadius="12dp" />
+
+            <Button
+                android:id="@+id/buttonEqual"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_margin="5dp"
+                android:text="="
+                android:textSize="35dp"
+                app:cornerRadius="12dp" />
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>
