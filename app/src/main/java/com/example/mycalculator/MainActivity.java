@@ -3,6 +3,7 @@ package com.example.mycalculator;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -56,6 +57,13 @@ public class MainActivity extends AppCompatActivity {
         buttonClear.setOnClickListener(new addNumberToTextView());
         buttonDelete.setOnClickListener(new addNumberToTextView());
 
+        buttonVariable.setOnClickListener(new addNumberToTextView());
+        buttonDivision.setOnClickListener(new addNumberToTextView());
+        buttonMultiplication.setOnClickListener(new addNumberToTextView());
+        buttonSubtraction.setOnClickListener(new addNumberToTextView());
+        buttonAddition.setOnClickListener(new addNumberToTextView());
+        buttonExponent.setOnClickListener(new addNumberToTextView());
+
         // ************************************************************
 
     }
@@ -65,8 +73,23 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             Button b = (Button)view;
-            if(b.getText().toString().equalsIgnoreCase("C"))
-                textNumber.setText("0.00");
+            String str = b.getText().toString();
+            Log.d("amogus", (String) b.getText());
+
+            if(str.equalsIgnoreCase("C"))
+                textNumber.setText("0");
+            else if(str.equalsIgnoreCase("D"))
+                if(textNumber.length() > 1)
+                    textNumber.setText(textNumber.getText().subSequence(0, textNumber.length()-1));
+                else
+                    textNumber.setText("0");
+            else
+                if(textNumber.getText().equals("0"))
+                    textNumber.setText(str);
+                else
+                    textNumber.setText(textNumber.getText() + str);
+
+            /*
             else if(b.getText().toString().equalsIgnoreCase("D"))
                 if(textNumber.getText().toString().length() > 0)
                     textNumber.setText(textNumber.getText().toString().substring(0, textNumber.getText().toString().length()-1));
@@ -75,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                     textNumber.setText(b.getText().toString());
                 else
                     textNumber.append(b.getText().toString());
-            }
+            }*/
         }
     }
 }
