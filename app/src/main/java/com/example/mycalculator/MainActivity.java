@@ -2,6 +2,7 @@ package com.example.mycalculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -83,6 +84,14 @@ public class MainActivity extends AppCompatActivity {
                     textNumber.setText(textNumber.getText().subSequence(0, textNumber.length()-1));
                 else
                     textNumber.setText("0");
+            else if(str.equalsIgnoreCase("Gr")) {
+
+            }
+            else if(str.equalsIgnoreCase("^")) {
+                if(!textNumber.getText().equals("0") && textNumber.getText().charAt(textNumber.getText().length()-1) != '^')
+                    textNumber.append("^");
+
+            }
             else
                 if(textNumber.getText().equals("0"))
                     textNumber.setText(str);
