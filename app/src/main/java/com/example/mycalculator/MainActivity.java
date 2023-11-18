@@ -16,6 +16,30 @@ import java.util.StringTokenizer;
 
 public class MainActivity extends AppCompatActivity {
 
+    /*
+        EXAMPLE TEST CASES
+        2x^2 + 6x + 5 + 3x^2 − 2x − 1 = 5x^2 + 4x + 4
+        10+6 = 16
+        3 * 4 = 12
+        2x + 8 = 2x + 8
+        4 + 2x^3 + 5x^3 + 2 = 7x^3 + 6
+        3x^3 + 6x^4 + 7x^4 - 4 = 13x^4 + 3x^3 - 4
+        7x + 6x * 5x^2 + 8 = 30x^3 + 7x + 8
+        6x * 2x + 3 = 12x^2 + 3
+        5x^3 * 12x^5 + 5x - 2x * 8 + 10 = 60x^8 - 11x + 10
+        7x^5 + 8x - 9x^5 + 10 - 8 = -2x^5 + 8x + 2
+
+        EXAMPLE ERROR TEST CASES (Should result in “ERROR” displayed)
+        5x^2+X^ [Ends with carrot]
+        3X+ [Ends with Operator]
+        *X+2 [Starts with Operator]
+        4X++2 [Double Operators]
+        4X**2 [Double Operators]
+        4X+*2 [Double Operators]
+        Nothing in expression -> Press Delete
+     */
+
+
     TextView textNumber;
     Button buttonClear, buttonDelete, buttonVariable, buttonDivision, button0, button1, button2, button3, button4, button5, button6, button7, button8, button9, buttonMultiplication, buttonSubtraction, buttonAddition, buttonEqual, buttonExponent, buttonDecimal;
 
@@ -75,9 +99,10 @@ public class MainActivity extends AppCompatActivity {
 
         buttonEqual.setOnClickListener(new addNumberToTextView());
 
+
         // ************************************************************
 
-       // myWebView = findViewById(R.id.webview);
+       // myWebView = findViewById(R.id.webview); 2x^2 + 6x + 5 + 3x^2 − 2x − 1
 
     }
 
@@ -102,15 +127,28 @@ public class MainActivity extends AppCompatActivity {
 
             }
             else if(str.equalsIgnoreCase("=")) {
-                Log.d("omgsgors", (String) textNumber.getText());
+                Log.d("omgsgors", (String) textNumber.getText().toString());
 
-                if(textNumber.getText().charAt(textNumber.length()-1) != '+' && textNumber.getText().charAt(textNumber.length()-1) != '-' && textNumber.getText().charAt(textNumber.length()-1) != '*' && textNumber.getText().charAt(textNumber.length()-1) != '^') {
-                    try {
-                        String result = calculate((String) ((String) textNumber.getText()).toLowerCase());
-                        textNumber.setText(result);
-                    } catch (Exception e) {
-                        textNumber.setText("error");
-                    }
+                if(textNumber.getText().toString().charAt(textNumber.length()-1) != '+' && textNumber.getText().charAt(textNumber.length()-1) != '-' && textNumber.getText().charAt(textNumber.length()-1) != '*' && textNumber.getText().charAt(textNumber.length()-1) != '^' && textNumber.getText().charAt(0) != '+' && textNumber.getText().charAt(0) != '*' && textNumber.getText().charAt(0) != '^') {
+                        try {
+                            String result = calculate(textNumber.getText().toString().toLowerCase());
+                            textNumber.setText(result.toUpperCase());
+                        } catch (Exception e) {
+                            textNumber.setText("error"); //7x^5 + 8x - 9x^5 + 10 - 8
+                        }
+
+                    /*
+                    *
+                    * 5x^2+X^ [Ends with carrot]
+                    3X+ [Ends with Operator]
+                    *X+2 [Starts with Operator]
+                    4X++2 [Double Operators]
+                    4X**2 [Double Operators]
+                    4X+*2 [Double Operators]
+                    Nothing in expression -> Press Delete
+                    *
+                    * */
+
                 } else {
                     textNumber.setText("error");
 
@@ -118,13 +156,13 @@ public class MainActivity extends AppCompatActivity {
             }
             else if(str.equalsIgnoreCase("^")) {
                 Log.d("CHEESE",textNumber.getText() + " " + textNumber.length());
-                if(!textNumber.getText().equals("0"))
+                if(!textNumber.getText().toString().equals("0"))
                     if((textNumber.getText().charAt(textNumber.length()-1)) != '^')
                         textNumber.append("^");
 
             }
             else
-                if(textNumber.getText().equals("0"))
+                if(textNumber.getText().toString().equals("0"))
                     textNumber.setText(str);
                 else
                     textNumber.setText(textNumber.getText() + str);
@@ -205,7 +243,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public static String calculate(String input) {
+        input = input.trim();
+        input = input.replace(" ", "");
+        System.out.println("HELLO: " + input);
         input = input.replace("-", "+-");
+        System.out.println("HELLO: " + input);
 
         String result = "";
 
